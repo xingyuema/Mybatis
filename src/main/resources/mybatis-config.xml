@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="config.properties"/> <!--数据库相关信息-->
+    <typeAliases>
+        <typeAlias type="model.Person" alias="Person"/> <!--注意此对象一定要从包的根部写起 model.Person -->
+        <typeAlias type="model.Bala" alias="Bala"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mapper/Person.xml"/><!--找到对应的配置文件 -->
+        <mapper resource="mapper/Bala.xml"/>
+    </mappers>
+
+</configuration>
